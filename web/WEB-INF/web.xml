@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+    <!--    <servlet>
+        <servlet-name>Register</servlet-name>
+        <servlet-class>com.user.Register</servlet-class>
+    </servlet>-->
+    
+     <welcome-file-list>
+        <!-- Specify SignUp.jsp as the default file -->
+        <welcome-file>SignUp.jsp</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <servlet-name>Register</servlet-name>
+        <jsp-file>/SignUp.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>backend</servlet-name>
+        <servlet-class>com.user.backend</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/Register</url-pattern>
+        <url-pattern>/signing</url-pattern>
+    </servlet-mapping>
+    <!--    <servlet-mapping>
+        <servlet-name>Register</servlet-name>
+        <url-pattern>/Register</url-pattern>
+    </servlet-mapping>
+    -->
+    <filter>
+        <filter-name>FilterFile</filter-name>
+        <filter-class>com.user.FilterFile</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterFile</filter-name>
+        <url-pattern>/SignUp.jsp</url-pattern>
+    </filter-mapping>
+    <!-- <error-page>
+        
+        <error-code>
+            404
+        </error-code>
+        
+        <location>/404.jsp</location>
+        
+    </error-page>-->
+    <servlet-mapping>
+        <servlet-name>backend</servlet-name>
+        <url-pattern>/backend</url-pattern>
+    </servlet-mapping>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
+</web-app>
